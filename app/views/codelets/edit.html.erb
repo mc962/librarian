@@ -1,2 +1,3 @@
-<h1>Codelets#edit</h1>
-<p>Find me in app/views/codelets/edit.html.erb</p>
+<h1>Update the Codelet: <%= @codelet.name %></h1>
+
+<%= render partial: 'form', locals: {codelet: @codelet} %>
