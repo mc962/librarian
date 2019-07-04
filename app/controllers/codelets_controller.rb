@@ -44,7 +44,7 @@ class CodeletsController < ApplicationController
       # and so will not call any ActiveRecord-related callbacks
       Codelet.delete(params[:id])
       redirect_to codelets_path
-    rescue err => ActiveRecord::RecordNotFound
+    rescue ActiveRecord::RecordNotFound => err
       Rails.logger.error("Codelet not found: #{params[:id]}")
       flash.error = "Codelet was not found"
     end
