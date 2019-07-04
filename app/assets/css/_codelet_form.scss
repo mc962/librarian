@@ -1,0 +1,21 @@
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+// Styles should be written for this size first, and then altered as necessary in future queries
+@include media-breakpoint-up(xs) {}
+
+// Small devices (landscape phones, 576px and up)
+@include media-breakpoint-up(sm) { 
+    
+ }
+// Medium devices (tablets, 768px and up)
+@include media-breakpoint-up(md) { 
+    
+ }
+// Large devices (desktops, 992px and up)
+@include media-breakpoint-up(lg) { 
+    
+ }
+// Extra large devices (large desktops, 1200px and up)
+@include media-breakpoint-up(xl) { 
+    
+ }

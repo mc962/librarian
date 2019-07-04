@@ -1,2 +1,2 @@
-import './hello_typescript'
-import 'stylesheets/application'
+import '../hello_typescript'
+import 'css/stylesheets/application'
