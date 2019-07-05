@@ -18,7 +18,9 @@ ActiveRecord::Schema.define(version: 2019_07_03_120558) do
   create_table "codelets", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
-    t.text "body"
+    t.text "description", null: false
+    t.text "examples"
+    t.boolean "publicly_accessible", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_codelets_on_name", unique: true

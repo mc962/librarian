@@ -53,6 +53,6 @@ class CodeletsController < ApplicationController
   private
 
   def codelet_params
-    params.require(:codelet).permit(:name, :body)
+    params.require(:codelet).permit(:name, :description, :examples)
   end
 end

@@ -13,4 +13,6 @@
 class Codelet < ApplicationRecord
     extend FriendlyId
     friendly_id :name, use: :history
+
+    validates :name, :slug, :description, presence: true
 end
