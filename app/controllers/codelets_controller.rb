@@ -6,6 +6,12 @@ class CodeletsController < ApplicationController
     render :index
   end
 
+  def show
+    @codelet = Codelet.find(params[:id])
+    
+    render :show
+  end
+
   def new
     @codelet = Codelet.new
     

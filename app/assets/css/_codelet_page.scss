@@ -1,20 +1,12 @@
- $enable-responsive-font-sizes: 'true';
+//  $enable-responsive-font-sizes: 'true';
 
 // Extra small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 // Styles should be written for this size first, and then altered as necessary in future queries
 @include media-breakpoint-up(xs) {
-    .codelet-heading {
-        @include responsive-font-size(3rem);
-    }
-
-    .form-codelet-label {
-        @include responsive-font-size(1.5rem);
-    }
-
-    .form-codelet-text {
-        min-height: 12vh;
-    }
+    // .form-codelet-label {
+    //     @include responsive-font-size(1.5rem);
+    // }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -23,18 +15,12 @@
  }
 // Medium devices (tablets, 768px and up)
 @include media-breakpoint-up(md) { 
-    .codelet-text {
-        min-height: 30vh;
-    }
  }
 
 // Larger tablet devices (such as Kindle Fire)
  @media only screen
  and (min-device-width: 800)
  and (max-device-width: 1280) {
-    .form-codelet-text {
-        min-height: 20vh;
-    }
  }
 
 // Landscape tablet devices (such as iPad)
@@ -47,13 +33,6 @@
 
 // Large devices (desktops, 992px and up)
 @include media-breakpoint-up(lg) { 
-    .codelet-heading {
-        @include responsive-font-size(2rem);
-    }
-
-    .form-codelet-label {
-        @include responsive-font-size(1rem);
-    }
  }
 // Extra large devices (large desktops, 1200px and up)
 @include media-breakpoint-up(xl) { 

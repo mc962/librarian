@@ -1,0 +1,15 @@
+<h1><%= @codelet.name %></h1>
+
+<p>
+    <%= @codelet.description %>
+</p>
+    <%= @codelet.examples %>
+</p>
+
+<nav>
+    <ul>
+        <li><%= link_to 'Edit', edit_codelet_path(@codelet) %></li>
+        <li><%= link_to 'All Codelets', codelets_path %></li>
+        <li><%= link_to 'Delete Codelet', method: :delete, action: :destroy, id: @codelet.id %></li>
+    </ul>
+</nav>

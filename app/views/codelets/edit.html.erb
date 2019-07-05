@@ -1,3 +1,5 @@
-<h1>Update the Codelet: <%= @codelet.name %></h1>
+<h1 class="codelet-heading text-center p-4 pt-lg-2 pb-lg-0 mt-md-5 mt-lg-2">Update the Codelet: <strong><%= @codelet.name %></strong></h1>
 
-<%= render partial: 'form', locals: {codelet: @codelet} %>
+<div class='p-4'>
+    <%= render partial: 'form', locals: {codelet: @codelet} %>
+</div>
