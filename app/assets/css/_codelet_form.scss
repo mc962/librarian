@@ -47,7 +47,13 @@
 
 // Large devices (desktops, 992px and up)
 @include media-breakpoint-up(lg) { 
-    
+    .new-codelet-heading {
+        @include responsive-font-size(2rem);
+    }
+
+    .form-codelet-label {
+        @include responsive-font-size(1rem);
+    }
  }
 // Extra large devices (large desktops, 1200px and up)
 @include media-breakpoint-up(xl) { 
