@@ -1,15 +1,29 @@
-<h1><%= @codelet.name %></h1>
-
-<p>
-    <%= @codelet.description %>
-</p>
-    <%= @codelet.examples %>
-</p>
-
-<nav>
-    <ul>
-        <li><%= link_to 'Edit', edit_codelet_path(@codelet) %></li>
-        <li><%= link_to 'All Codelets', codelets_path %></li>
-        <li><%= link_to 'Delete Codelet', method: :delete, action: :destroy, id: @codelet.id %></li>
+<nav class='navbar navbar-expand bg-light'>
+    <%= link_to 'The Library', root_path, class: 'navbar-brand' %>
+    <ul class='navbar-nav'>
+        <li class='navbar-item'><%= link_to 'Edit Codelet', edit_codelet_path(@codelet), class: 'nav-link' %></li>
+        <li class='navbar-item'><%= link_to 'Delete Codelet', codelets_path(@codelet), method: :delete, action: :destroy, class: 'nav-link' %></li>
     </ul>
 </nav>
+
+<div class='row'>
+    <div class='col'></div>
+    <article class='codelet-page-card card col-8 m-5 p-5'>
+        <h1 class='card-title'><%= @codelet.name %></h1>
+
+        <section class='card-body'>
+            <section>
+                <p class='card-text pt-2 pb-4'>
+                    <%= @codelet.description %>
+                </p>
+            </section>
+            <section class='bg-light p-4'>
+                <label for='codelet_examples' class='card-subtitle text-muted'>Examples</label>
+                <p id='codelet_examples' class='card-text'>
+                    <%= @codelet.examples %>
+                </p>
+            </section>
+        </section>
+    </article>
+    <div class='col'></div>
+</div>

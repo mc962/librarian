@@ -43,13 +43,14 @@
         <div class='col-md-12 col-lg-6 col-sm-12 mb-md-5 mb-4 mb-lg-2'>
             <div class='form-group'>
                 <%= f.label :publicly_accessible, 'Allow anyone to see this Code?', class: 'form-codelet-label' %>
-                <%= f.check_box :publicly_accessible, class: 'form-check mb-md-5 mb-lg-2' %>
+                <%= f.check_box :publicly_accessible, checked: @codelet.publicly_accessible, class: 'form-check mb-md-5 mb-lg-2' %>
             </div>
         </div>
         <div class='col'></div>
     </div>
 
     <div id='codelet_submit' class='form-row justify-content-center'>
-        <%= f.submit class: 'btn btn-primary btn-lg'%>
+        <%= f.submit class: 'btn btn-primary btn-lg mx-4'%>
+        <%= link_to 'Back', codelet_path(@codelet), class: 'btn btn-secondary btn-lg mx-4' %>
     </div>
 <% end %>
