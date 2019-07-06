@@ -1,12 +1,12 @@
-<nav class='navbar navbar-expand bg-light'>
-    <%= link_to 'The Library', root_path, class: 'navbar-brand' %>
+<nav class='library-nav navbar navbar-expand bg-light'>
+    <%= link_to 'The Library', root_path, class: 'navbar-brand home-link px-3' %>
     <ul class='navbar-nav'>
         <li class='navbar-item'><%= link_to 'Edit Codelet', edit_codelet_path(@codelet), class: 'nav-link' %></li>
-        <li class='navbar-item'><%= link_to 'Delete Codelet', codelets_path(@codelet), method: :delete, action: :destroy, class: 'nav-link' %></li>
+        <li class='navbar-item'><%= button_to 'Delete Codelet', codelet_path(@codelet), method: :delete, class: 'nav-link btn btn-link', id: 'delete_codelet_btn' %></li>
     </ul>
 </nav>
 
-<div class='row'>
+<main class='codelet-content row' role='main'>
     <div class='col'></div>
     <article class='codelet-page-card card col-8 m-5 p-5'>
         <h1 class='card-title'><%= @codelet.name %></h1>
@@ -26,4 +26,4 @@
         </section>
     </article>
     <div class='col'></div>
-</div>
+</main>

@@ -1,7 +1,20 @@
 @import "../bootstrap.scss";
 @import "../codelet_form";
-@import "../codelet_page";
+@import "../codelet_show";
+@import "../codelet_index";
 
+ $enable-responsive-font-sizes: 'true';
 
+.home-link:hover {
+    background-color: #e3e3e3;
+}
+
+.flash-box {
+    width: 100%;
+}
+
+.flash-content {
+    width: 100%;
+}
 // consider using card for page styling of codelets
 // consider using carousel for home page preview of codelets

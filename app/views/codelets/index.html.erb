@@ -1,2 +1,26 @@
-<h1>Codelets#index</h1>
-<p>Find me in app/views/codelets/index.html.erb</p>
+<nav class='navbar navbar-expand bg-light'>
+    <%= link_to 'The Library', root_path, class: 'navbar-brand home-link px-3' %>
+    <ul class='navbar-nav'>
+        <li class='navbar-item'><%= link_to 'New Codelet', new_codelet_path, class: 'nav-link' %></li>
+    </ul>
+</nav>
+<h1 class='codelet-library-heading text-center mt-4 mb-3'>Welcome to the Library</h1>
+
+
+<main class='container' role='main'>
+    <div class='row'>
+        <div class='col-2'></div>
+        <ul class='col-lg-8'>
+            <%# TODO: Use more efficient iterator %>
+            <% @codelets.each do |codelet| %>
+                <%= link_to codelet_path(codelet) do %>
+                    <li class='codelet-card card col-12 my-4 p-lg-4 p-2 p-md-3'>
+                        <h5 class='card-title'><%= codelet.name %></h5>
+                        <p class='card-text bg-light p-4'><%= codelet.description %></p>
+                    </li>
+                <% end %>
+            <% end %>
+        </ul>
+        <div class='col-2'></div>
+    </div>
+</main>

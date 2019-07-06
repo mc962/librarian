@@ -14,8 +14,10 @@
 
 FactoryBot.define do
   factory :codelet do
-    name { "MyString" }
-    slug { "MyString" }
-    body { "MyText" }
+    name { Faker::JapaneseMedia::OnePiece.unique.character }
+    slug { Faker::JapaneseMedia::OnePiece.unique.character.parameterize }
+    description { Faker::TvShows::DrWho.catch_phrase }
+    examples { Faker::TvShows::DrWho.quote }
+    publicly_accessible { Faker::Boolean.boolean }
   end
 end

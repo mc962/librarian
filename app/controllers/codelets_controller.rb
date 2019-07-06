@@ -1,7 +1,7 @@
 class CodeletsController < ApplicationController
   def index
     # TODO paginate codelets
-    @codelets = Codelet.all
+    @codelets = Codelet.where(publicly_accessible: true).all
 
     render :index
   end
@@ -20,10 +20,10 @@ class CodeletsController < ApplicationController
 
   def create
     @codelet = Codelet.new(codelet_params)
-
     if @codelet.save
       redirect_to codelet_path(@codelet)
     else
+      flash.now[:danger] = @codelet.errors.full_messages
       render :new
     end
   end
@@ -40,20 +40,21 @@ class CodeletsController < ApplicationController
     if @codelet.update(codelet_params)
       redirect_to codelet_path(@codelet)
     else
+      flash.now[:danger] = @codelet.errors.full_messages
       render :edit
     end
   end
 
   def destroy
-    begin
-      # NOTE: This just deletes with SQL, it will not touch ActiveRecord
-      # and so will not call any ActiveRecord-related callbacks
-      Codelet.delete(params[:id])
+      begin
+        Codelet.destroy(params[:id])        
+      rescue ActiveRecord::RecordNotFound => error
+        message = "Couldn't find Codelet with 'slug'=#{params[:id]} to delete"
+        Rails.logger.error message
+        flash.now[:danger] = "Codelet was not found, therefore nothing was deleted"
+      end
+
       redirect_to codelets_path
-    rescue ActiveRecord::RecordNotFound => err
-      Rails.logger.error("Codelet not found: #{params[:id]}")
-      flash.error = "Codelet was not found"
-    end
   end
 
   private
