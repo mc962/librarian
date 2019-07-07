@@ -15,5 +15,25 @@
 require 'rails_helper'
 
 RSpec.describe Codelet, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+    context 'presence' do
+      it { should validate_presence_of(:name) }
+      it { should validate_presence_of(:slug) }
+      it { should validate_presence_of(:description) }
+    end
+
+    context 'uniqueness' do
+      subject { FactoryBot.create(:codelet) }
+      it { should validate_uniqueness_of(:name) }
+      it { should validate_uniqueness_of(:slug) }
+    end
+  end
+
+  describe 'library codelets' do
+    it 'only displays publicly accessible codelets' do
+      codelets = FactoryBot.create_list(:codelet, 5)
+      library_codelets = Codelet.library
+      expect(library_codelets.all?(&:publicly_accessible)).to be true
+    end
+  end
 end

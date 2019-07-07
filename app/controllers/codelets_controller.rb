@@ -1,6 +1,5 @@
 class CodeletsController < ApplicationController
   def index
-    # TODO paginate codelets
     @codelets = Codelet.library.page(params[:page])
 
     render :index
@@ -60,6 +59,11 @@ class CodeletsController < ApplicationController
   private
 
   def codelet_params
-    params.require(:codelet).permit(:name, :description, :examples, :publicly_accessible)
+    params.require(:codelet).permit(
+      :name, 
+      :description, 
+      :examples, 
+      :publicly_accessible
+    )
   end
 end
