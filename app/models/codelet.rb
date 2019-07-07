@@ -20,4 +20,8 @@ class Codelet < ApplicationRecord
     validates :name, :slug, uniqueness: true
 
     scope :library, -> { where(publicly_accessible: true) }
+
+    def should_generate_new_friendly_id?
+        name_changed? || super
+    end
 end
