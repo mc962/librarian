@@ -17,8 +17,7 @@ class Codelet < ApplicationRecord
     friendly_id :name, use: :history
 
     validates :name, :slug, :description, presence: true
+    validates :name, :slug, uniqueness: true
 
-    def self.library_codelets
-       Codelet.where(publicly_accessible: true) 
-    end
+    scope :library, -> { where(publicly_accessible: true) }
 end

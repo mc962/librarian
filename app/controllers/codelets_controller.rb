@@ -1,7 +1,7 @@
 class CodeletsController < ApplicationController
   def index
     # TODO paginate codelets
-    @codelets = Codelet.library_codelets.page(params[:page])
+    @codelets = Codelet.library.page(params[:page])
 
     render :index
   end
