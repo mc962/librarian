@@ -1,7 +1,7 @@
 class CodeletsController < ApplicationController
   def index
     # TODO paginate codelets
-    @codelets = Codelet.where(publicly_accessible: true).all
+    @codelets = Codelet.library_codelets.page(params[:page])
 
     render :index
   end

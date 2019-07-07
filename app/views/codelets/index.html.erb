@@ -10,6 +10,15 @@
 <main class='container' role='main'>
     <div class='row'>
         <div class='col-2'></div>
+        <div class='col-8'>
+            <div class='col-12'>
+                <%= page_entries_info @codelets, entry_name: 'codelet' %>
+            </div>
+        </div>
+        <div class='col-2'></div>
+    </div>
+    <div class='row'>
+        <div class='col-2'></div>
         <ul class='col-lg-8'>
             <%# TODO: Use more efficient iterator %>
             <% @codelets.each do |codelet| %>
@@ -21,6 +30,15 @@
                 <% end %>
             <% end %>
         </ul>
+        <div class='col-2'></div>
+    </div>
+    <div class='row'>
+        <div class='col-2'></div>
+        <div class='col-8'>
+            <div class='col-12'>
+                <%= paginate @codelets %>
+            </div>
+        </div>
         <div class='col-2'></div>
     </div>
 </main>
