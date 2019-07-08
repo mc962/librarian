@@ -19,7 +19,9 @@ class CodeletsController < ApplicationController
 
   def create
     @codelet = Codelet.new(codelet_params)
+
     if @codelet.save
+      flash[:success] = 'Codelet successfully created'
       redirect_to codelet_path(@codelet)
     else
       flash.now[:danger] = @codelet.errors.full_messages
@@ -37,6 +39,7 @@ class CodeletsController < ApplicationController
     @codelet = Codelet.find(params[:id])
     
     if @codelet.update(codelet_params)
+      flash[:success] = 'Codelet successfully updated'
       redirect_to codelet_path(@codelet)
     else
       flash.now[:danger] = @codelet.errors.full_messages
@@ -46,7 +49,8 @@ class CodeletsController < ApplicationController
 
   def destroy
       begin
-        Codelet.destroy(params[:id])        
+        Codelet.destroy(params[:id])      
+        flash[:success] = 'Codelet successfully deleted'  
       rescue ActiveRecord::RecordNotFound => error
         message = "Couldn't find Codelet with 'slug'=#{params[:id]} to delete"
         Rails.logger.error message

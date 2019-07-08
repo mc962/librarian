@@ -1,0 +1,12 @@
+<nav class='navbar navbar-expand bg-light'>
+    <%= link_to 'The Library', root_path, class: 'navbar-brand home-link px-3' %>
+    <ul class='navbar-nav'>
+        <% if current_page?(root_path) || current_page?(codelets_path) %>
+                <li class='navbar-item'><%= link_to 'New Codelet', new_codelet_path, class: 'nav-link' %></li>
+        <% end %>
+        <% if @codelet&.slug && current_page?(codelet_path(@codelet)) %>
+            <li class='navbar-item'><%= link_to 'Edit Codelet', edit_codelet_path(@codelet), class: 'nav-link' %></li>
+            <li class='navbar-item'><%= button_to 'Delete Codelet', codelet_path(@codelet), method: :delete, class: 'nav-link btn btn-link', id: 'delete_codelet_btn' %></li>
+        <% end %>
+    </ul>
+</nav>

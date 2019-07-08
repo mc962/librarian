@@ -1,14 +1,19 @@
-<% flash.each do |name, message| %>
-    <div class="row">
+<%# Possible Values: primary, secondary, success, danger, warning, info, light, dark %>
+<% flash.each_with_index do |(name, message), idx| %>
+    <div class="row <%= 'mt-3' if idx == 0 %>">
         <div class='col-4'></div>
         <div class='flash-box col-4 '>
-            <div class="<%= "flash-content row alert alert-#{name}" %>" role='alert'>
+            <div class="<%= "flash-content row text-center alert alert-#{name}" %>" role='alert'>
                 <div class='col-11'>
-                    <ul>
-                        <% message.each do |msg| %>
-                            <li><%= msg %></li>
-                        <% end %>
-                    </ul>
+                    <% if message.is_a?(String) %>
+                        <%= message %>
+                    <% elsif msg.is_a?(Array) %>
+                        <ul>
+                            <% message.each do |msg| %>
+                                <li><%= msg %></li>
+                            <% end %>
+                        </ul>
+                    <% end %>
                 </div>
                 <div class='col-1 my-auto'>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

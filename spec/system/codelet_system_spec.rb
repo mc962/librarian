@@ -31,8 +31,8 @@ RSpec.describe "Codelet management", :type => :system do
             click_button 'Create Codelet'
         end
 
-        # expect redirected to codelet show path
-        expect(page.current_path == codelet_path(codelet_name.parameterize)).to be true
+        # expect redirected to codelet show path, with successful flash
+        assert page.has_content? 'Codelet successfully created'
     end
 
     it 'updates codelets' do
@@ -58,8 +58,8 @@ RSpec.describe "Codelet management", :type => :system do
 
         # should be redirected to codelet #show path
         expect(page.current_path == codelet_path(codelet.name.parameterize)).to be true
-        # codelet should display new content
-        expect(page.has_content?(codelet_updated_description)).to be true
+        # codelet should display updated content
+        assert page.has_content? 'Codelet successfully updated'
     end
 
     it 'deletes codelets' do
@@ -84,5 +84,8 @@ RSpec.describe "Codelet management", :type => :system do
 
         # expect codelet to no longer exist
         expect { Codelet.find(codelet.slug) }.to raise_error(ActiveRecord::RecordNotFound)
+
+        # codelet should display updated content
+        assert page.has_content? 'Codelet successfully deleted'
     end
 end
