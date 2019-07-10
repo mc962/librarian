@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
+    include ApplicationHelper
+    
     helper_method :logged_in?
 
-    def logged_in?
-        session[:validated]
-    end
+    
 end

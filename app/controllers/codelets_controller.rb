@@ -70,4 +70,13 @@ class CodeletsController < ApplicationController
       :publicly_accessible
     )
   end
+
+  def require_logged_in
+    if sessions[:validated]
+      true
+    else
+      flash[:danger] = 'You may not do this when not logged in!'
+      redirect_to codelets_path
+    end
+  end
 end

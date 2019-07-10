@@ -94,3 +94,7 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def log_in!
+  post :create, controller: :basic_sessions, params: { basic_sessions: { password: Rails.application.credentials.simple_authentication_key } }
+end
