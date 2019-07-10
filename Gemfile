@@ -67,6 +67,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # annotate database table columns
   gem 'annotate'
+  # Ruby linter
+  gem 'rubocop-rails'
 end
 
 group :test do
