@@ -1,6 +1,11 @@
 {
   "name": "librarian",
   "private": true,
+  "engines": {
+    "node": "12.5.0",
+    "npm": "6.9.0",
+    "yarn": "1.17.2"
+  },
   "dependencies": {
     "@rails/webpacker": "^4.0.7",
     "bootstrap": "^4.3.1",
