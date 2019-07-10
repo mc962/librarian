@@ -1,0 +1,24 @@
+<div id="login_modal" class='modal' tabindex='-1' role='dialog'>
+    <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+            <header class='modal-header'>
+                <h5 class='modal-title'>
+                    Login
+                </h5>
+                <button type='button' class='close' data-dismiss='modal' aria-label='close'>
+                    <span aria-hidden='true'>&times;</span>
+                </button>
+            </header>
+            <div class='modal-body'>
+                <%= form_for :basic_sessions, url: basic_sessions_path, method: :post do |f| %>
+                    <%= f.label :password %>
+                    <%= f.password_field :password, class: 'form-control', required: true %>
+                    <footer class='modal-footer'>
+                        <%= f.submit 'Login', class: 'btn btn-primary' %>
+                        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                    </footer>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
