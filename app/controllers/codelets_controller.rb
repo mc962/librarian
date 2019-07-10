@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CodeletsController < ApplicationController
   def index
     @codelets = Codelet.library.page(params[:page])
@@ -7,13 +9,13 @@ class CodeletsController < ApplicationController
 
   def show
     @codelet = Codelet.find(params[:id])
-    
+
     render :show
   end
 
   def new
     @codelet = Codelet.new
-    
+
     render :new
   end
 
@@ -37,7 +39,7 @@ class CodeletsController < ApplicationController
 
   def update
     @codelet = Codelet.find(params[:id])
-    
+
     if @codelet.update(codelet_params)
       flash[:success] = 'Codelet successfully updated'
       redirect_to codelet_path(@codelet)
@@ -48,25 +50,26 @@ class CodeletsController < ApplicationController
   end
 
   def destroy
-      begin
-        Codelet.destroy(params[:id])      
-        flash[:success] = 'Codelet successfully deleted'  
-      rescue ActiveRecord::RecordNotFound => error
-        message = "Couldn't find Codelet with 'slug'=#{params[:id]} to delete"
-        Rails.logger.error message
-        flash.now[:danger] = "Codelet was not found, therefore nothing was deleted"
-      end
+    begin
+      Codelet.destroy(params[:id])
+      flash[:success] = 'Codelet successfully deleted'
+    rescue ActiveRecord::RecordNotFound => _e
+      message = "Couldn't find Codelet with 'slug'=#{params[:id]} to delete"
+      Rails.logger.error message
+      flash.now[:danger] = 'Codelet was not found, '
+      'therefore nothing was deleted'
+    end
 
-      redirect_to codelets_path
+    redirect_to codelets_path
   end
 
   private
 
   def codelet_params
     params.require(:codelet).permit(
-      :name, 
-      :description, 
-      :examples, 
+      :name,
+      :description,
+      :examples,
       :publicly_accessible
     )
   end

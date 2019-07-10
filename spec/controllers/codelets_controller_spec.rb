@@ -1,28 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe CodeletsController, type: :controller do
-  describe "GET #index" do
-    it "returns http success" do
+  describe 'GET #index' do
+    it 'returns http success' do
       get :index
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET #new" do
-    it "returns http success" do
+  describe 'GET #new' do
+    it 'returns http success' do
       get :new
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "POST #create" do
+  describe 'POST #create' do
     codelet_payload = {
       codelet: {
         name: Faker::Games::Fallout.unique.name,
         description: Faker::Games::Fallout.faction,
         examples: Faker::Games::Fallout.quote,
         publicly_accessible: Faker::Boolean.boolean
-      }  
+      }
     }
 
     context 'successful creation' do
@@ -30,12 +30,12 @@ RSpec.describe CodeletsController, type: :controller do
         initial_codelets_count = Codelet.count
         post :create, params: codelet_payload
         final_codelets_count = Codelet.count
-        
+
         expect(response).to redirect_to(codelet_path(codelet_payload[:codelet][:name].parameterize))
         expect(final_codelets_count).to be_equal(initial_codelets_count + 1)
       end
     end
-    
+
     context 'unsuccessful creation' do
       it 'fails to create a codelet' do
         bad_codelet_payload = codelet_payload.deep_dup
@@ -44,16 +44,15 @@ RSpec.describe CodeletsController, type: :controller do
         initial_codelets_count = Codelet.count
         post :create, params: bad_codelet_payload
         final_codelets_count = Codelet.count
-        
+
         expect(response).to have_http_status(:unprocessable_entity)
         expect(final_codelets_count).to be_equal(initial_codelets_count)
       end
-
     end
   end
 
-  describe "GET #edit" do
-    it "returns http success" do
+  describe 'GET #edit' do
+    it 'returns http success' do
       codelet = FactoryBot.create(:codelet)
 
       get :edit, params: { id: codelet.slug }
@@ -61,11 +60,10 @@ RSpec.describe CodeletsController, type: :controller do
     end
   end
 
-  describe "PATCH #update" do
+  describe 'PATCH #update' do
     let(:initial_codelet) { FactoryBot.create(:codelet) }
 
     context 'successful update' do
-
       it 'updates the codelet and redirects to #show' do
         updated_description = Faker::GreekPhilosophers.quote
 
@@ -75,7 +73,7 @@ RSpec.describe CodeletsController, type: :controller do
             description: updated_description
           }
         }
-        
+
         updated_codelet = Codelet.find(initial_codelet.slug)
 
         expect(response).to redirect_to(codelet_path(initial_codelet.slug))
@@ -98,7 +96,7 @@ RSpec.describe CodeletsController, type: :controller do
         expect(updated_codelet.slug).to eq(updated_name.parameterize)
       end
     end
-    
+
     context 'unsuccessful update' do
       it 'fails to update a codelet' do
         patch :update, params: {
@@ -107,13 +105,13 @@ RSpec.describe CodeletsController, type: :controller do
             description: nil
           }
         }
-        
+
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 
-  describe "DELETE #destroy" do
+  describe 'DELETE #destroy' do
     context 'successful destroy' do
       it 'destroys the codelet' do
         FactoryBot.create_list(:codelet, 3)

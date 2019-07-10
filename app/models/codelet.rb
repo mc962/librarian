@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: codelets
@@ -13,15 +15,15 @@
 #
 
 class Codelet < ApplicationRecord
-    extend FriendlyId
-    friendly_id :name, use: :history
+  extend FriendlyId
+  friendly_id :name, use: :history
 
-    validates :name, :slug, :description, presence: true
-    validates :name, :slug, uniqueness: true
+  validates :name, :slug, :description, presence: true
+  validates :name, :slug, uniqueness: true
 
-    scope :library, -> { where(publicly_accessible: true) }
+  scope :library, -> { where(publicly_accessible: true) }
 
-    def should_generate_new_friendly_id?
-        name_changed? || super
-    end
+  def should_generate_new_friendly_id?
+    name_changed? || super
+  end
 end
