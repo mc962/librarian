@@ -27,6 +27,12 @@ RSpec.describe Codelet, type: :model do
       it { should validate_uniqueness_of(:name) }
       # it { should validate_uniqueness_of(:slug) } # NOTE: This appears to break only in tests due to the friendly_id codebase
     end
+
+    context 'length' do
+      it { should validate_length_of(:name).is_at_most(500) }
+      it { should validate_length_of(:description).is_at_most(750) }
+      it { should validate_length_of(:examples).is_at_most(2000) }
+    end
   end
 
   describe 'library codelets' do
