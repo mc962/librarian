@@ -26,6 +26,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+/app/assets/javascripts/dist/
+
 /public/packs
 /public/packs-test
 /node_modules
@@ -38,3 +40,4 @@ yarn-debug.log*
 
 # JetBrains
 .idea/
+

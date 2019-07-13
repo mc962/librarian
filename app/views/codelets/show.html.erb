@@ -12,7 +12,7 @@
             <section class='bg-light p-4'>
                 <label for='codelet_examples' class='card-subtitle text-muted'>Examples</label>
                 <p id='codelet_examples' class='card-text'>
-                    <%= @codelet.examples %>
+                    <%= sanitize(@codelet.examples).html_safe %>
                 </p>
             </section>
         </section>
