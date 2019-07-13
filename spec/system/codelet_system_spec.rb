@@ -36,7 +36,7 @@ RSpec.describe 'Codelet management', type: :system do
   end
 
   it 'updates codelets' do
-    codelet = FactoryBot.create(:codelet)
+    codelet = create(:codelet)
 
     visit edit_codelet_path(codelet.name.parameterize)
     # attempt to unsuccessfully update a new codelet
@@ -63,7 +63,7 @@ RSpec.describe 'Codelet management', type: :system do
   end
 
   it 'deletes codelets' do
-    codelet = FactoryBot.create(:codelet)
+    codelet = create(:codelet)
 
     visit codelet_path(codelet.name.parameterize)
     # attempt to unsuccessfully delete a codelet

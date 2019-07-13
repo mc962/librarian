@@ -53,7 +53,7 @@ RSpec.describe CodeletsController, type: :controller do
 
   describe 'GET #edit' do
     it 'returns http success' do
-      codelet = FactoryBot.create(:codelet)
+      codelet = create(:codelet)
 
       get :edit, params: { id: codelet.slug }
       expect(response).to have_http_status(:success)
@@ -61,7 +61,7 @@ RSpec.describe CodeletsController, type: :controller do
   end
 
   describe 'PATCH #update' do
-    let(:initial_codelet) { FactoryBot.create(:codelet) }
+    let(:initial_codelet) { create(:codelet) }
 
     context 'successful update' do
       it 'updates the codelet and redirects to #show' do
@@ -114,7 +114,7 @@ RSpec.describe CodeletsController, type: :controller do
   describe 'DELETE #destroy' do
     context 'successful destroy' do
       it 'destroys the codelet' do
-        FactoryBot.create_list(:codelet, 3)
+        create_list(:codelet, 3)
         dieing_codelet = Codelet.first
 
         initial_codelet_count = Codelet.count
@@ -130,7 +130,7 @@ RSpec.describe CodeletsController, type: :controller do
 
     context 'unsuccessful destroy' do
       it 'fails to destroy the codelet' do
-        FactoryBot.create_list(:codelet, 3)
+        create_list(:codelet, 3)
 
         initial_codelet_count = Codelet.count
         delete :destroy, params: {
