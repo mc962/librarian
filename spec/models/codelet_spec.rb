@@ -34,7 +34,8 @@ RSpec.describe Codelet, type: :model do
   end
 
   describe 'associations' do
-    it { should have_many(:examples) }
+    it { should have_many(:examples).dependent(:destroy) }
+    it { should accept_nested_attributes_for(:examples) }
   end
 
   describe 'library codelets' do
