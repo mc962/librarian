@@ -18,13 +18,12 @@ class Codelet < ApplicationRecord
   friendly_id :name, use: :history
 
   has_many :examples, dependent: :destroy
+  accepts_nested_attributes_for :examples
 
   validates :name, :slug, :description, presence: true
   validates :name, :slug, uniqueness: true
   validates_length_of :name, maximum: 500
   validates_length_of :description, maximum: 750
-
-  accepts_nested_attributes_for :examples
 
   scope :library, -> { where(publicly_accessible: true) }
 

@@ -70,7 +70,12 @@ class CodeletsController < ApplicationController
       :name,
       :description,
       :examples,
-      :publicly_accessible
+      :publicly_accessible,
+      examples_attributes: [
+        :command,
+        :output,
+        :comment
+      ]
     )
   end
 end
