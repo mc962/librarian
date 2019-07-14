@@ -4,12 +4,13 @@
   "engines": {
     "node": "12.5.0",
     "npm": "6.9.0",
-    "yarn": "1.17.2"
+    "yarn": "1.17.3"
   },
   "dependencies": {
     "@rails/webpacker": "^4.0.7",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
+    "lodash.template": "4.5.0",
     "popper.js": "^1.14.7",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.2",
