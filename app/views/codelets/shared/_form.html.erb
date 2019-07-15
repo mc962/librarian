@@ -27,7 +27,14 @@
         <div class='col'></div>
     </div>
 
-    <%= render partial: 'codelets/shared/example', locals: { codelet_form: codelet_form, codelet_examples: codelet_examples } %>
+    <div class='row'>
+        <div class='col-3'></div>
+        <label for='examples_list' class='col-3 form-codelet-label font-weight-bold'>Examples</label>
+        <button type='button' id='add_example_btn' class='btn btn-lg btn-secondary mx-auto mx-lg-5 mb-md-4'>Add Another Example</button>
+    </div>
+    <ul id='examples_list' class='list-group-flush'>
+        <%= render partial: 'codelets/shared/example', locals: { codelet_form: codelet_form, codelet_examples: codelet_examples } %>
+    </ul>
 
     <div class='form-row'>
         <div class='col'></div>
