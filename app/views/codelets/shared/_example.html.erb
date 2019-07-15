@@ -1,23 +1,29 @@
-<label for='examples_container'>Examples</label>
+<div class='row '>
+    <div class='col-lg-3'></div>
+    <label for='examples_container' class='offset-1 mr-5 ml-3 form-codelet-label font-weight-bold'>Examples</label>
+    <button type='button' id='add_example_btn' class='btn btn-secondary mb-md-4'>Add Another Example</button>
+    <div class='col-lg-3'></div>
+</div>
 <div id='examples-container' class='form-row'>
-    <div class='col'></div>
-    <div class='form-group col-md-12 col-lg-6 col-sm-12'>
+    <div class='form-group'>
         <%= codelet_form.fields_for codelet_examples do |example_fields| %>
-            <div class='form-group'>
-                <%= example_fields.label :command, 'Command', class: 'form-codelet-label' %>
-                <%= example_fields.text_field :command, class: 'form-control mb-md-5 mb-lg-4', required: true, maxlength: 500 %>
+            <div class='row form-row justify-content-center'>
+                <div class='form-group col-lg-4 col-md-5'>
+                    <%= example_fields.label :command, 'Command', class: 'form-codelet-label font-italic' %>
+                    <%= example_fields.text_field :command, class: 'form-control mb-md-5 mb-lg-4', required: true, maxlength: 500 %>
+                </div>
+                <div class='form-group col-lg-4 col-md-5'>
+                    <%= example_fields.label :output, 'Output', class: 'form-codelet-label font-italic' %>
+                    <%= example_fields.text_area :output, class: 'form-control mb-md-5 mb-lg-4' %>
+                </div>
             </div>
 
-            <div class='form-group'>
-                <%= example_fields.label :output, 'Output', class: 'form-codelet-label' %>
-                <%= example_fields.text_area :output, class: 'form-control mb-md-5 mb-lg-4' %>
-            </div>
-
-            <div class='form-group'>
-                <%= example_fields.label :comment, 'Comments', class: 'form-codelet-label' %>
-                <%= example_fields.text_area :comment, class: 'form-control mb-md-5 mb-lg-4' %>
+            <div class='form-row justify-content-center'>
+                <div class='form-group col-lg-6 col-md-8'>
+                    <%= example_fields.label :comment, 'Comments', class: 'form-codelet-label font-italic' %>
+                    <%= example_fields.text_area :comment, class: 'form-control mb-md-5 mb-lg-4' %>
+                </div>
             </div>
         <% end %>
     </div>
-    <div class='col'></div>
 </div>

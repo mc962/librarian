@@ -3,7 +3,7 @@
         <div class='col'></div>
         <div class='col-md-12 col-lg-6 col-sm-12'>
             <div class='form-group'>
-                <%= codelet_form.label :name, class: 'form-codelet-label' %>
+                <%= codelet_form.label :name, class: 'form-codelet-label font-weight-bold' %>
                 <%= codelet_form.text_field :name, class: 'form-control mb-md-5 mb-lg-4', required: true, maxlength: 500 %>
                 <div class='invalid-feedback'>
                     Please provide a name for the code
@@ -17,7 +17,7 @@
         <div class='col'></div>
         <div class='col-md-12 col-lg-6 col-sm-12'>
             <div class='form-group'>
-                <%= codelet_form.label :description, 'Describe the Code', class: 'form-codelet-label' %>
+                <%= codelet_form.label :description, 'Describe the Code', class: 'form-codelet-label font-weight-bold' %>
                 <%= codelet_form.text_area :description, class: 'form-codelet-text form-control mb-md-5 mb-lg-4', required: true, maxlength: 750 %>
                 <div class='invalid-feedback'>
                     Please describe the code
@@ -31,9 +31,9 @@
 
     <div class='form-row'>
         <div class='col'></div>
-        <div class='col-md-12 col-lg-6 col-sm-12 mb-md-5 mb-4 mb-lg-2'>
+        <div class='col-md-12 col-lg-6 col-sm-12 mb-md-0 mb-4 mb-lg-2'>
             <div class='form-group'>
-                <%= codelet_form.label :publicly_accessible, 'Allow anyone to see this Code?', class: 'form-codelet-label' %>
+                <%= codelet_form.label :publicly_accessible, 'Allow anyone to see this Code?', class: 'form-codelet-label font-weight-bold' %>
                 <%= codelet_form.check_box :publicly_accessible, checked: @codelet.publicly_accessible, class: 'form-check mb-md-5 mb-lg-2' %>
             </div>
         </div>
