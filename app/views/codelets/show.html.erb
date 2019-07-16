@@ -1,3 +1,8 @@
+<% content_for :main_head_assets do %>
+    <%= stylesheet_pack_tag 'show_codelet', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'show_codelet', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
 <main class='codelet-content row' role='main'>
     <div class='col'></div>
     <article class='codelet-page-card card col-8 m-5 p-5'>

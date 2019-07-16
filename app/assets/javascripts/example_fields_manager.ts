@@ -4,10 +4,13 @@ const DOMPurify = createDomPurify(window);
 class ExampleFieldsManager {
     examples_list: HTMLUListElement;
 
-    constructor() {
+    constructor({pageType}: {pageType: string}) {
         this.examples_list = document.getElementById('examples_list') as HTMLUListElement;
         
-        this.insertBlankExample();
+        if (pageType === 'new') {
+            this.insertBlankExample();
+        }
+        
         this._addExampleListener();
     }
 
