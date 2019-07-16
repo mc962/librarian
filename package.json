@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "@rails/webpacker": "^4.0.7",
+    "@types/dompurify": "^0.0.33",
     "bootstrap": "^4.3.1",
+    "dompurify": "^1.0.11",
     "jquery": "^3.4.1",
     "popper.js": "^1.14.7",
     "ts-loader": "^6.0.4",
