@@ -34,7 +34,11 @@
         <div class='col-lg-3'></div>
     </div>
     <ul id='examples_list' class='list-group-flush'>
-        <%= render partial: 'codelets/shared/example', locals: { codelet_form: codelet_form, codelet_examples: codelet_examples } %>
+        <% codelet_examples.each do |example| %>
+            <%= render partial: 'codelets/shared/example', locals: { codelet_form: codelet_form, codelet_examples: codelet_examples } %>
+        <% end%>
+
+        <%= render partial: 'codelets/shared/example_template', locals: { codelet_form: codelet_form, codelet_examples: [] } %>
     </ul>
 
     <div class='form-row'>

@@ -14,12 +14,18 @@
                     <%= @codelet.description %>
                 </p>
             </section>
-            <section class='bg-light p-4'>
-                <label for='codelet_examples' class='card-subtitle text-muted'>Examples</label>
-                <p id='codelet_examples' class='card-text'>
-                    <%= @codelet.examples %>
-                </p>
-            </section>
+            <ul id='examples_list'>
+                <% @codelet.examples.each do |example| %>
+                <li class='bg-light p-4 my-2'>
+                    <label for='codelet_examples' class='card-subtitle text-muted'>Examples</label>
+                    <p id='codelet_examples' class='card-text'>
+                    </p>
+                        <%= sanitize(example.markdown_command_html).html_safe %>
+                        <%= sanitize(example.markdown_output_html).html_safe %>
+                        <%= example.comment %>                        
+                </li>
+                <% end %>
+            </ul>
         </section>
     </article>
     <div class='col'></div>
