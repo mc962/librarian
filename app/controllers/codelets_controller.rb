@@ -15,7 +15,6 @@ class CodeletsController < ApplicationController
 
   def new
     @codelet = Codelet.new
-
     render :new
   end
 

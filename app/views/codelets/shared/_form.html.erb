@@ -35,10 +35,10 @@
     </div>
     <ul id='examples_list' class='list-group-flush'>
         <% codelet_examples.each do |example| %>
-            <%= render partial: 'codelets/shared/example', locals: { codelet_form: codelet_form, codelet_examples: codelet_examples } %>
+            <%= render partial: 'codelets/shared/example', locals: { codelet_form: codelet_form, codelet_example: example } %>
         <% end%>
 
-        <%= render partial: 'codelets/shared/example_template', locals: { codelet_form: codelet_form, codelet_examples: [] } %>
+        <%= render partial: 'codelets/shared/example_template', locals: { codelet_form: codelet_form, codelet_example: codelet.examples.build } %>
     </ul>
 
     <div class='form-row'>
