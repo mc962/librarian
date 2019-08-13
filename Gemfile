@@ -73,6 +73,8 @@ group :development do
   gem 'annotate'
   # Ruby linter
   gem 'rubocop-rails'
+  # Ruby documentation
+  gem 'yard'
 end
 
 group :test do

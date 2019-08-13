@@ -27,6 +27,10 @@ class Codelet < ApplicationRecord
 
   scope :library, -> { where(publicly_accessible: true) }
 
+  # Determine if Codelet should generate a new friendly_id, based on if
+  # the codelet name has updated or not
+  #
+  # @return [Boolean]
   def should_generate_new_friendly_id?
     name_changed? || super
   end
