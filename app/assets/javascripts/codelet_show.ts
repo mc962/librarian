@@ -1,4 +1,4 @@
-const codeletDeleteListener = () => {
+export const codeletDeleteListener = () => {
     document.addEventListener('click', (event) => {
         const target = event.target as HTMLFormElement
         const eventElId: string = target.id;
@@ -12,7 +12,3 @@ const codeletDeleteListener = () => {
         }
     }, false);
 };
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    codeletDeleteListener();
-});

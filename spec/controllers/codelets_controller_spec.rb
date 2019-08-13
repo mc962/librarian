@@ -20,7 +20,7 @@ RSpec.describe CodeletsController, type: :controller do
       codelet: {
         name: Faker::Games::Fallout.unique.name,
         description: Faker::Games::Fallout.faction,
-        examples: Faker::Games::Fallout.quote,
+        # examples: Faker::Games::Fallout.quote,
         publicly_accessible: Faker::Boolean.boolean
       }
     }

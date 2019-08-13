@@ -10,7 +10,7 @@ RSpec.describe 'Codelet management', type: :system do
 
     codelet_name = Faker::Ancient.unique.god
     codelet_description = Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote
-    codelet_examples = Faker::ChuckNorris.fact
+    # codelet_examples = Faker::ChuckNorris.fact
 
     # attempt to unsuccessfully create a new codelet
     within('#new_codelet') do
@@ -24,7 +24,7 @@ RSpec.describe 'Codelet management', type: :system do
     # successfully create a new codelet
     within('#new_codelet') do
       fill_in 'Describe the Code', with: codelet_description
-      fill_in 'Examples', with: codelet_examples
+      # fill_in 'Examples', with: codelet_examples
 
       check 'codelet_publicly_accessible'
 
