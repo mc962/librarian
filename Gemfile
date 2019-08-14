@@ -51,6 +51,10 @@ gem 'lograge'
 # Pagination
 gem 'kaminari'
 
+# Markdown parsing, conversion, and syntax highlighting
+gem 'redcarpet'
+gem 'rouge'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -69,6 +73,8 @@ group :development do
   gem 'annotate'
   # Ruby linter
   gem 'rubocop-rails'
+  # Ruby documentation
+  gem 'yard'
 end
 
 group :test do

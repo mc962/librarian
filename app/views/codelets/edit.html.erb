@@ -1,7 +1,12 @@
+<% content_for :main_head_assets do %>
+    <%= stylesheet_pack_tag 'edit_codelet', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'edit_codelet', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
 <h1 class="codelet-heading text-center p-4 pt-lg-2 pb-lg-0 mt-md-5 mt-lg-2">
     Update the Codelet: <strong><%= @codelet.name %></strong>
 </h1>
 
 <div class='p-4'>
-    <%= render partial: 'form', locals: {codelet: @codelet, edit_form: true} %>
+    <%= render partial: 'codelets/shared/form', locals: { codelet: @codelet, edit_form: true, codelet_examples: @codelet.examples } %>
 </div>

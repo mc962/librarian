@@ -1,3 +1,8 @@
+<% content_for :main_head_assets do %>
+    <%= stylesheet_pack_tag 'show_codelet', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'show_codelet', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
 <main class='codelet-content row' role='main'>
     <div class='col'></div>
     <article class='codelet-page-card card col-8 m-5 p-5'>
@@ -9,12 +14,21 @@
                     <%= @codelet.description %>
                 </p>
             </section>
-            <section class='bg-light p-4'>
-                <label for='codelet_examples' class='card-subtitle text-muted'>Examples</label>
-                <p id='codelet_examples' class='card-text'>
-                    <%= @codelet.examples %>
-                </p>
-            </section>
+
+            <% unless @codelet.examples.empty? %>
+                <label for='examples_list' class='card-subtitle font-weight-bold'>Examples</label>
+                <ul id='examples_list' class='list-group'>
+                    <% @codelet.examples.each do |example| %>
+                    <li class='bg-light list-group-item p-4 my-2'>
+                        <p id='codelet_examples' class='card-text'>
+                        </p>
+                            <%= sanitize(example.markdown_command_html).html_safe %>
+                            <%= sanitize(example.markdown_output_html).html_safe %>
+                            <%= example.comment %>                        
+                    </li>
+                    <% end %>
+                </ul>
+            <% end %>
         </section>
     </article>
     <div class='col'></div>

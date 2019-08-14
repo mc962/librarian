@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_120558) do
+ActiveRecord::Schema.define(version: 2019_07_13_032127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,22 @@ ActiveRecord::Schema.define(version: 2019_07_03_120558) do
     t.string "name", null: false
     t.string "slug", null: false
     t.text "description", null: false
-    t.text "examples"
     t.boolean "publicly_accessible", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_codelets_on_name", unique: true
     t.index ["slug"], name: "index_codelets_on_slug", unique: true
+  end
+
+  create_table "examples", force: :cascade do |t|
+    t.text "command", null: false
+    t.text "output"
+    t.text "comment"
+    t.bigint "codelet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["codelet_id"], name: "index_examples_on_codelet_id"
+    t.index ["command"], name: "index_examples_on_command"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -38,4 +48,5 @@ ActiveRecord::Schema.define(version: 2019_07_03_120558) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  add_foreign_key "examples", "codelets"
 end

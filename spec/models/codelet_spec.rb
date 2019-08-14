@@ -6,7 +6,6 @@
 #  name                :string           not null
 #  slug                :string           not null
 #  description         :text             not null
-#  examples            :text
 #  publicly_accessible :boolean          default(FALSE)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
@@ -23,7 +22,7 @@ RSpec.describe Codelet, type: :model do
     end
 
     context 'uniqueness' do
-      subject { FactoryBot.create(:codelet) }
+      subject { create(:codelet) }
       it { should validate_uniqueness_of(:name) }
       # it { should validate_uniqueness_of(:slug) } # NOTE: This appears to break only in tests due to the friendly_id codebase
     end
@@ -31,13 +30,17 @@ RSpec.describe Codelet, type: :model do
     context 'length' do
       it { should validate_length_of(:name).is_at_most(500) }
       it { should validate_length_of(:description).is_at_most(750) }
-      it { should validate_length_of(:examples).is_at_most(2000) }
     end
+  end
+
+  describe 'associations' do
+    it { should have_many(:examples).dependent(:destroy) }
+    it { should accept_nested_attributes_for(:examples) }
   end
 
   describe 'library codelets' do
     it 'only displays publicly accessible codelets' do
-      codelets = FactoryBot.create_list(:codelet, 5)
+      codelets = create_list(:codelet, 5)
       library_codelets = Codelet.library
       expect(library_codelets.all?(&:publicly_accessible)).to be true
     end

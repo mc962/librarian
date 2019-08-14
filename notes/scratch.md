@@ -1,0 +1,11 @@
+- Use a 'wizard' for creating/updating codelets
+    - First page is the basic fields
+        - name
+        - description
+    - Next page is the more involved 'examples' fields 
+        - examples
+            - command
+            - output
+            - comment
+
+- If doing a 'wizard' it might be a fun idea to do it with react since most of the setup is already there

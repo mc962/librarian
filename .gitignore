@@ -38,3 +38,7 @@ yarn-debug.log*
 
 # JetBrains
 .idea/
+
+# Yard documentation
+.yardoc/
+doc/

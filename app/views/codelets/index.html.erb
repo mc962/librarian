@@ -1,5 +1,9 @@
-<h1 class='codelet-library-heading text-center mt-4 mb-3'>Welcome to the Library</h1>
+<% content_for :main_head_assets do %>
+    <%= stylesheet_pack_tag 'index_codelets', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'index_codelets', 'data-turbolinks-track': 'reload' %>
+<% end %>
 
+<h1 class='codelet-library-heading text-center mt-4 mb-3'>Welcome to the Library</h1>
 
 <main class='container' role='main'>
     <div class='row'>

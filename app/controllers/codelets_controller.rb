@@ -15,7 +15,6 @@ class CodeletsController < ApplicationController
 
   def new
     @codelet = Codelet.new
-
     render :new
   end
 
@@ -70,7 +69,12 @@ class CodeletsController < ApplicationController
       :name,
       :description,
       :examples,
-      :publicly_accessible
+      :publicly_accessible,
+      examples_attributes: [
+        :command,
+        :output,
+        :comment
+      ]
     )
   end
 end

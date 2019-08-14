@@ -10,7 +10,7 @@ RSpec.describe 'Codelet management', type: :system do
 
     codelet_name = Faker::Ancient.unique.god
     codelet_description = Faker::Movies::HitchhikersGuideToTheGalaxy.marvin_quote
-    codelet_examples = Faker::ChuckNorris.fact
+    # codelet_examples = Faker::ChuckNorris.fact
 
     # attempt to unsuccessfully create a new codelet
     within('#new_codelet') do
@@ -24,7 +24,7 @@ RSpec.describe 'Codelet management', type: :system do
     # successfully create a new codelet
     within('#new_codelet') do
       fill_in 'Describe the Code', with: codelet_description
-      fill_in 'Examples', with: codelet_examples
+      # fill_in 'Examples', with: codelet_examples
 
       check 'codelet_publicly_accessible'
 
@@ -36,7 +36,7 @@ RSpec.describe 'Codelet management', type: :system do
   end
 
   it 'updates codelets' do
-    codelet = FactoryBot.create(:codelet)
+    codelet = create(:codelet)
 
     visit edit_codelet_path(codelet.name.parameterize)
     # attempt to unsuccessfully update a new codelet
@@ -63,7 +63,7 @@ RSpec.describe 'Codelet management', type: :system do
   end
 
   it 'deletes codelets' do
-    codelet = FactoryBot.create(:codelet)
+    codelet = create(:codelet)
 
     visit codelet_path(codelet.name.parameterize)
     # attempt to unsuccessfully delete a codelet
