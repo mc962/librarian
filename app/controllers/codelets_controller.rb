@@ -38,8 +38,8 @@ class CodeletsController < ApplicationController
 
   def update
     @codelet = Codelet.find(params[:id])
-
-    if @codelet.update(codelet_params)
+    Rails.logger.info codelet_params
+    if @codelet.update!(codelet_params)
       flash[:success] = 'Codelet successfully updated'
       redirect_to codelet_path(@codelet)
     else

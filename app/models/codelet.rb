@@ -25,6 +25,8 @@ class Codelet < ApplicationRecord
   validates_length_of :name, maximum: 500
   validates_length_of :description, maximum: 750
 
+  accepts_nested_attributes_for :examples
+
   scope :library, -> { where(publicly_accessible: true) }
 
   # Determine if Codelet should generate a new friendly_id, based on if

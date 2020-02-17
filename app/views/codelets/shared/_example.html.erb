@@ -1,6 +1,6 @@
 <div id='examples_container' class='form-row'>
     <div class='form-group'>
-        <%= codelet_form.fields_for codelet_example do |example_fields| %>                        
+        <%= codelet_form.fields_for :examples, codelet_example do |example_fields| %>                        
             <div class='row justify-content-lg-center'>
                 <div class='form-group col-lg-3'>
                     <%= example_fields.label :command, 'Command', class: 'form-codelet-label font-italic' %>

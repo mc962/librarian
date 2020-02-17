@@ -27,8 +27,6 @@
         <div class='col'></div>
     </div>
 
-    <%# TODO Examples submission functionality disabled for now until decision is made on how to do it on frontend %>
-    <!-- 
     <div class='row d-flex'>
         <div class='col-lg-3'></div>
         <label for='examples_list' class='col-3 form-codelet-label font-weight-bold'>Examples</label>
@@ -40,9 +38,8 @@
             <%= render partial: 'codelets/shared/example', locals: { codelet_form: codelet_form, codelet_example: example } %>
         <% end%>
 
-        <%= render partial: 'codelets/shared/example_template', locals: { codelet_form: codelet_form, codelet_example: codelet.examples.build } %>
+        <%= render partial: 'codelets/shared/example', locals: { codelet_form: codelet_form, codelet_example: codelet.examples.build } %>
     </ul>
-    -->
 
     <div class='form-row'>
         <div class='col'></div>
