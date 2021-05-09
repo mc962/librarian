@@ -12,7 +12,7 @@
     "bootstrap": "^4.3.1",
     "dompurify": "^1.0.11",
     "jquery": "^3.4.1",
-    "lodash": "4.17.13",
+    "lodash": "4.17.21",
     "lodash.template": "4.5.0",
     "popper.js": "^1.14.7",
     "ts-loader": "^6.0.4",
